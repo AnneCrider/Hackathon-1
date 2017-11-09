@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hackathon</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+  <h1>Let the music play !</h1>
+  <div class="heure"></div>
+  <div class="date"></div>
+  
+  <form>
+    <label for="question">Veux-tu écouter la radio ?</label> </br>
+    
+    <button class="radio">Go for music :) </button>
+  </form>
+  <div class="player"></div>
+ 
+  <script>
+  let heure;
+  setInterval(function(){
+    heure = new  Date();
+    document.querySelector('.heure').innerHTML = "Heure : " + heure.toLocaleTimeString();
+    document.querySelector('.date').innerHTML = "Date : " + heure.toLocaleDateString("en-GB");
+ 
+    if ((heure.getHours() >= 10 && heure.getHours() < 12) || (heure.getHours() >= 14 && heure.getHours() < 15)) {
+    stop();
+      }
+    // arrêt du player
+  }, 1000);
+ 
+  function setRadio(id){
+    document.querySelector('.player').innerHTML = '<iframe src="https://tunein.com/embed/player/' + id + '/?autoplay=true" style="width:100%; height:100px;" scrolling="no" frameborder="no"></iframe>';
+  }
+ 
+function stop(){
+    document.querySelector('.player').innerHTML = '';
+}
+ 
+  document
+  .querySelector('form')
+  .addEventListener('submit', function(e){ // On écoute tout l'envoi du formulaire
+  /*console.log(document.querySelector('.radio').value);*/
+  e.preventDefault(); // Permet de bloquer le rafraichissement de la page
+ 
+  let music = document.querySelector('.radio').value; // À récupérer dans le .radio (querySelector)
+
+  let Convers = [ 
+  "s50486", //RTL2
+  "s2339", //NRJ
+  "s74471" , //FUN
+  "s14906" , //Nostalgie
+  "s34682", //Jazz24
+  "s50486", //RTL2
+  "s2339", //NRJ
+  ]
+ 
+    if ((heure.getHours() > 0 && heure.getHours() < 11) || (heure.getHours() >= 12 && heure.getHours() < 14) || (heure.getHours() >= 15 && heure.getHours() <= 23))
+    {
+ 
+            setRadio(Convers[heure.getDay()-1]);
+    }else  {
+ 
+           
+       alert('Il n\'est pas l\'heure d\'écouter de la musique !')
+    }
+ 
+ 
+  });
+ 
+  </script>
+</body>
+</html>
+
+

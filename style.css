@@ -1,0 +1,26 @@
+div,h1,form{
+font-size: 80px;
+color:orange;
+text-align: center;
+text-shadow: 0px 0px 9px orange;
+}
+
+form {
+	
+	font: bold 80px;
+	color: grey;
+}
+
+.heure{
+text-align: center;
+}
+
+.radio {
+border-radius:12px 0 12px 0;
+background: #F5F5F5;
+border:solid black;
+color:#555;
+font:bold 12px Verdana;
+padding:15px 5px 15px 5px;
+box-shadow:1px 1px 3px #999;
+}
